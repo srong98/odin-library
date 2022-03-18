@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <script src="./library.js" defer></script>
+    <title>Library</title>
+</head>
+<body class="container">
+    <header class="header">
+
+    </header>
+    <main class="library">
+
+    </main>
+    <div class="sidebar">
+        <form id="form" class="form " autocomplete="off">
+            <div class="form-label">
+                <label for="title">Book Title</label>
+                <input type="text" name="title" id="title" placeholder="title" required>
+            </div>
+            <div class="form-label">
+                <label for="author-name">Author</label>
+                <input type="text" name="author-name" id="author-name" placeholder="author" required>
+            </div>
+            <div class="form-label">
+                <label for="pages" class="form-label"> Amount of Pages</label>
+                <input type="number" min=1 max=9999 name="pages" id="pages" required>
+            </div>
+            <div class="form-label">
+                <label for="read-status" class="form-label">Have you finished reading?</label>
+                <input type="checkbox" name="read-status" id="read-status">
+           
+            </div>
+            <label for="submit" class="form-label">
+                <button type="submit" id="submit">Submit</button>
+            </label>
+        </form>
+    </div>
+    <footer>
+
+    </footer>
+    
+</body>
+</html>
