@@ -24,4 +24,40 @@ function addBookToLibrary(e) {
     e.preventDefault();
     myLibrary.push(createBook());
     formSubmit.reset();
+    toggleForm();
+    updateLibraryArray();
+}
+
+const formStart = document.getElementById('formclick');
+formStart.addEventListener('click', toggleForm);
+
+function toggleForm() {
+    formSubmit.classList.toggle('hidden');
+}
+
+function updateLibraryArray() {
+    for (let i = 0; i < myLibrary.length; i++) {
+        let bookPresent = document.getElementById(`book${i+1}`);
+        if (bookPresent) continue;
+        const libraryBody = document.querySelector('.library');
+        let newBook = document.createElement('div');
+        let newTitle = document.createElement('h2');    
+        let newAuthor = document.createElement('h3');
+        let newPages = document.createElement('h3');
+        let newRead = document.createElement('input');
+        let id = `book${i+1}`;
+        
+        newTitle.innerText = myLibrary[i].bookTitle;
+        newAuthor.innerText = myLibrary[i].authorName;
+        newPages.innerText = myLibrary[i].numberPages;
+        newRead.setAttribute('type', 'checkbox');
+        newBook.className = 'bookBlock';
+        newBook.setAttribute('id', `${id}`)
+
+        newBook.appendChild(newTitle);
+        newBook.appendChild(newAuthor);
+        newBook.appendChild(newPages);
+        newBook.appendChild(newRead);
+        libraryBody.appendChild(newBook);
+    }
 }

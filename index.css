@@ -9,39 +9,114 @@ html {
 }
 input {
     text-align: initial;
-    padding-left: 5px;
-}
-.container {
-    display: grid;
-    grid-template-columns: repeat(15, 1fr);
-    grid-template-rows: repeat(12, 1fr);
-    height: 100vh;
-    background: linear-gradient(rgb(80, 80, 80), rgb(40, 40, 40));
-}
-.header {
-    grid-area: 1 / 4 / 3 / 16;
-}
-.sidebar {
-    grid-area: 1 / 1 / 13 / 4;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.library {
-    grid-area: 3 / 4 / 12 / 16;
-}
-.form,
-.form-label {
-    display: flex;
-    flex-flow: column nowrap;
-}
-.form {
-    width: 80%;
+    padding: 4px 0px 2px 6px;
     -webkit-appearance: none;
     appearance: none;
+    width: 100%;
+    font-size: 16px;
+}
+input[type='checkbox'] {
+    border: 2px rgb(6, 0, 43) solid;
+    border-radius: 30px;
+    width: 50px;
+    height: 20px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+.container {
+    height: 100vh;
+    background: linear-gradient(rgb(23, 65, 105), rgb(1, 46, 66));
+}
+.header {
+   height: 15%; 
+   font-family: Earth, Verdana, Geneva, Tahoma, sans-serif;
+   display: flex;
+   align-items: center;
+   color: rgba(26,124,185,255);
+   background:linear-gradient(rgb(0, 31, 78), rgb(0, 19, 41));
+}
+.header img {
+    max-width: 100px;
+}
+.library {
+   height: 85%; 
+   display: grid;
+   grid-template: 300px / 200px;
+   grid-auto-flow: column;
+   grid-auto-rows: 300px;
+   grid-auto-columns: 200px;
+}
+.bookBlock,
+.container,
+.form,
+.form-label {
+    flex-flow: column nowrap;
+    display: flex;
+}
+.form {
+    width: 300px;
     row-gap: 10px;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 30vh;
+    opacity: 1;
+    transition: opacity cubic-bezier(0.755, 0.8, 0.855, 0.9) 300ms;
+    background: white;
+    padding: 15px;
+}
+.form.hidden {
+    opacity: 0;
 }
 .form-label {
     align-items: flex-start;
     row-gap: 2px;
+}
+#formclick {
+    position: absolute;
+    color: rgb(0, 39, 49);
+    left: 92vw;
+    top: 85vh;
+    font-size: 45px;
+    border: rgb(0, 39, 49) solid 2px;
+    padding: 0px 15px 5px;
+    border-radius: 50%;
+    background:rgb(50, 224, 255) 
+}
+#formclick:hover {
+    cursor: pointer;
+    animation: cubic-bezier(0.175, 0.885, 0.32, 1) plusbutton 1s forwards;
+}
+.bookBlock {
+    margin: 50px 0px 0px 50px;
+    border: solid 5px rgb(39, 39, 39);
+    justify-content: space-around;
+    background: linear-gradient(rgb(230, 230, 230), rgb(165, 165, 165));
+    font-family: President, Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+}
+.bookBlock h2 {
+    font-style: italic;
+    font-size: 32px;
+    letter-spacing: 2px;
+}
+
+/* Animations */
+@keyframes plusbutton {
+    100% {
+        transform: scale(1.05) rotate(45deg);
+    }
+}
+
+/* Fonts */
+@font-face {
+    font-family: Earth;
+    src: url(./resources/earth-orbiter/earthorbiter.ttf);
+}
+@font-face {
+    font-family: President;
+    src: url(./resources/AccidentalPresidency.ttf);
 }

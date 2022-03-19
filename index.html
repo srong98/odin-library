@@ -8,40 +8,43 @@
     <script src="./library.js" defer></script>
     <title>Library</title>
 </head>
-<body class="container">
-    <header class="header">
+<body>
+    <div class="container">
+        <header class="header">
+            <img src="./resources/—Pngtree—cartoon blue open book illustration_5458418.png">
+            <h1>Easy Library</h1>
+        </header>
+        <main class="library">
 
-    </header>
-    <main class="library">
-
-    </main>
-    <div class="sidebar">
-        <form id="form" class="form " autocomplete="off">
-            <div class="form-label">
-                <label for="title">Book Title</label>
-                <input type="text" name="title" id="title" placeholder="title" required>
-            </div>
-            <div class="form-label">
-                <label for="author-name">Author</label>
-                <input type="text" name="author-name" id="author-name" placeholder="author" required>
-            </div>
-            <div class="form-label">
-                <label for="pages" class="form-label"> Amount of Pages</label>
-                <input type="number" min=1 max=9999 name="pages" id="pages" required>
-            </div>
-            <div class="form-label">
-                <label for="read-status" class="form-label">Have you finished reading?</label>
-                <input type="checkbox" name="read-status" id="read-status">
-           
-            </div>
-            <label for="submit" class="form-label">
-                <button type="submit" id="submit">Submit</button>
-            </label>
-        </form>
+        </main> 
+        <div id="formclick">
+            +
+        </div>
     </div>
     <footer>
-
+        Copyright &copy; Sam R. Inc. 2022
     </footer>
     
+     <form id="form" class="form hidden" autocomplete="off">
+        <div class="form-label">
+            <label for="title">Book Title</label>
+            <input type="text" name="title" id="title" placeholder="title" required>
+        </div>
+        <div class="form-label">
+            <label for="author-name">Author</label>
+            <input type="text" name="author-name" id="author-name" placeholder="author" required>
+        </div>
+        <div class="form-label">
+            <label for="pages" class="form-label"> Amount of Pages</label>
+            <input type="number" min=1 max=9999 name="pages" id="pages" required>
+        </div>
+        <div class="form-label">
+            <label for="read-status" class="form-label">Have you finished reading?</label>
+            <input type="checkbox" name="read-status" id="read-status">
+        </div>
+        <label for="submit" class="form-label">
+            <button type="submit" id="submit">Submit</button>
+        </label>
+    </form>
 </body>
 </html>
