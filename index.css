@@ -11,6 +11,11 @@ html {
     box-sizing: border-box;
     text-align: center;
 }
+footer {
+    padding: 15px;
+    background: rgb(41, 41, 41);
+    color: white;
+}
 input {
     text-align: initial;
     padding: 4px 0px 2px 6px;
@@ -32,7 +37,7 @@ input[type='checkbox']:checked {
     background-color: rgb(1, 111, 161);
 }
 .container {
-    height: 100vh;
+    min-height: 100vh;
     background: linear-gradient(rgb(23, 65, 105), rgb(1, 46, 66));
 }
 .header {
@@ -47,12 +52,14 @@ input[type='checkbox']:checked {
     max-width: 100px;
 }
 .library { 
-   height: 85%; 
+   min-height: 85vh; 
+   height: 100%;
    display: grid;
-   grid-template: 300px / 250px;
-   grid-auto-flow: column;
+   grid-template-columns: repeat(auto-fit, 250px);
+   grid-auto-flow: row;
    grid-auto-rows: 300px;
    grid-auto-columns: 250px;
+   padding-bottom: 50px;
 }
 .bookBlock,
 .container,
