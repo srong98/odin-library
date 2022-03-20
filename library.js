@@ -41,23 +41,31 @@ function updateLibraryArray() {
         if (bookPresent) continue;
         const libraryBody = document.querySelector('.library');
         let newBook = document.createElement('div');
-        let newTitle = document.createElement('h2');    
-        let newAuthor = document.createElement('h3');
-        let newPages = document.createElement('h3');
+        let newTitle = document.createElement('div');    
+        let newAuthor = document.createElement('div');
+        let newPages = document.createElement('div');
         let newRead = document.createElement('input');
+        let newTrash = document.createElement('img');
         let id = `book${i+1}`;
         
-        newTitle.innerText = myLibrary[i].bookTitle;
-        newAuthor.innerText = myLibrary[i].authorName;
-        newPages.innerText = myLibrary[i].numberPages;
-        newRead.setAttribute('type', 'checkbox');
-        newBook.className = 'bookBlock';
+        newRead.setAttribute('type', 'checkbox'); 
         newBook.setAttribute('id', `${id}`)
+        newTitle.setAttribute('id', 'newTitle');
+        newAuthor.setAttribute('id', 'newAuthor');
+        newPages.setAttribute('id', 'newPages')
+        newTrash.src = './resources/toppng.com-trash-can-720x534.png';
+        newTrash.className = 'trash'
+        newBook.className = 'bookBlock';
+
+        newTitle.innerText = myLibrary[i].bookTitle;
+        newAuthor.innerText = `By: ${myLibrary[i].authorName}`;
+        newPages.innerText = `Page Count: ${myLibrary[i].numberPages}`;
 
         newBook.appendChild(newTitle);
         newBook.appendChild(newAuthor);
         newBook.appendChild(newPages);
         newBook.appendChild(newRead);
+        newBook.appendChild(newTrash)
         libraryBody.appendChild(newBook);
     }
 }
