@@ -35,11 +35,12 @@ function toggleForm() {
     formSubmit.classList.toggle('hidden');
 }
 
+const libraryBody = document.querySelector('.library');
 function updateLibraryArray() {
     for (let i = 0; i < myLibrary.length; i++) {
         let bookPresent = document.getElementById(`book${i+1}`);
         if (bookPresent) continue;
-        const libraryBody = document.querySelector('.library');
+        
         let newBook = document.createElement('div');
         let newTitle = document.createElement('div');    
         let newAuthor = document.createElement('div');
@@ -67,5 +68,14 @@ function updateLibraryArray() {
         newBook.appendChild(newRead);
         newBook.appendChild(newTrash)
         libraryBody.appendChild(newBook);
+    }
+}
+
+libraryBody.addEventListener('click', removeBook)
+
+function removeBook(e) {
+    if (e.target.classList.contains('trash')) {
+        e.parentNode.parentNode.innerHTML = 0;
+        updateLibraryArray();
     }
 }
