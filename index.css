@@ -55,10 +55,10 @@ input[type='checkbox']:checked {
    min-height: 85vh; 
    height: 100%;
    display: grid;
-   grid-template-columns: repeat(auto-fit, 250px);
+   grid-template-columns: repeat(auto-fit, 275px);
    grid-auto-flow: row;
    grid-auto-rows: 300px;
-   grid-auto-columns: 250px;
+   grid-auto-columns: 275px;
    padding-bottom: 50px;
 }
 .bookBlock,
@@ -117,6 +117,7 @@ input[type='checkbox']:checked {
     font-size: 20px;
     color: var(--lightBlue);
     padding: 15px;
+    text-align: start;
 }
 .bookBlock #newTitle {
     font-style: italic;
