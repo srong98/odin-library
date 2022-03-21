@@ -68,6 +68,9 @@ input[type='checkbox']:checked {
     flex-flow: column nowrap;
     display: flex;
 }
+.container.blur {
+    opacity: 0.7;
+}
 .form {
     width: 300px;
     row-gap: 10px;

@@ -31,8 +31,10 @@ function addBookToLibrary(e) {
 const formStart = document.getElementById('formclick');
 formStart.addEventListener('click', toggleForm);
 
+const container = document.querySelector('.container')
 function toggleForm() {
     formSubmit.classList.toggle('hidden');
+    container.classList.toggle('blur');
 }
 
 const libraryBody = document.querySelector('.library');
@@ -56,11 +58,15 @@ function updateLibraryArray() {
         newPages.setAttribute('id', 'newPages')
         newTrash.src = './resources/toppng.com-trash-can-720x534.png';
         newTrash.className = 'trash'
+        newTrash.setAttribute('id', `${i}`);
         newBook.className = 'bookBlock';
 
         newTitle.innerText = myLibrary[i].bookTitle;
         newAuthor.innerText = `By: ${myLibrary[i].authorName}`;
         newPages.innerText = `Page Count: ${myLibrary[i].numberPages}`;
+        if (myLibrary[i].readStatus == true) {
+            newRead.checked = true;
+        }
 
         newBook.appendChild(newTitle);
         newBook.appendChild(newAuthor);
@@ -75,7 +81,20 @@ libraryBody.addEventListener('click', removeBook)
 
 function removeBook(e) {
     if (e.target.classList.contains('trash')) {
-        e.parentNode.parentNode.innerHTML = 0;
-        updateLibraryArray();
+        let bookNumber = Number(e.target.getAttribute('id'));
+        let deletedBook = document.getElementById(`book${bookNumber+1}`)
+        myLibrary.splice(bookNumber, 1);
+        libraryBody.removeChild(deletedBook);
+        reloadBookIDs();
+    }
+}
+
+function reloadBookIDs() {        
+    let childNodes = libraryBody.childNodes;
+    for (let i = 0; i < myLibrary.length; i++) {
+        let book = childNodes[i+1];
+        book.setAttribute('id', `book${i+1}`);
+        let trashID = book.querySelector('.trash');
+        trashID.setAttribute('id', `${i}`);
     }
 }
